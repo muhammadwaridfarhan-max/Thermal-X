@@ -3,7 +3,7 @@ name: Build & Release Thermal-X KernelSU + App
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:   # Bisa dijalankan manual kapan saja
+  workflow_dispatch:
 
 jobs:
   build:
@@ -202,13 +202,4 @@ EOF
           cd thermal-x-app
           ./gradlew assembleRelease --stacktrace
 
-      # ==================== UPLOAD ====================
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: Thermal-X-Release
-          path: |
-            *.zip
-            *.apk
-            thermal-x-app/app/build/outputs/apk/release/*.apk
-            thermal-x-app/app/build/outputs/apk/release/*.aab
+      # ==================== UPLOAD =================
